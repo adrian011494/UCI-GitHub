@@ -1,0 +1,39 @@
+{
+    "manifest_version": 2,
+    "name": "UCI-GitHub",
+    "version": "1.3",
+    "applications": {
+        "gecko": {
+            "id": "ucigithub@humanos.uci.cu"
+        }
+    },
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+
+    "description": "UCI-GitHub permite acceder a los recursos de GitHub, sin consumir cuenta de navegación, a través del Administrador de Repositorios http://nexus.prod.uci.cu. \n\n Desarrollado por:\nAdrian Arencibia Herrera (https://humanos.uci.cu/author/aaherrera/)\nErnesto Alejandro Santana (https://humanos.uci.cu/author/nesty/)",
+
+    "permissions": [
+        "activeTab",
+        "webRequest",
+        "webRequestBlocking",
+        "tabs"
+    ],
+
+    "browser_action": {
+        "default_icon": "icon16.png",
+        "default_title": "UCI-GitHub"
+    },
+    "background": {
+        "scripts": ["jquery.min.js"],
+        "persistent": true
+    },
+    "content_scripts": [{
+        "matches": ["*://github.com/*"],
+        "all_frames": true,
+        "js": ["jquery.min.js", "jquery.msgBox.min.js", "redirect.js"]
+    }],
+    "web_accessible_resources": ["*.*"]
+}
